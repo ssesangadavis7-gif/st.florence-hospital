@@ -1,0 +1,441 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,600&family=Source+Sans+3:wght@400;500;600&display=swap");
+:root {
+    --green-900: #0b3a2e;
+    --green-700: #14604a;
+    --green-100: #e3f1ec;
+    --gold: #e3a72f;
+    --ink: #1c2b27;
+    --muted: #51625c;
+    --page: #f3f7f5;
+    --white: #ffffff;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Source Sans 3", "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--page);
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* ---------- Header (the <center> block) ---------- */
+
+body>center {
+    display: block;
+    padding: 2.25rem 1rem 1.75rem;
+    background: radial-gradient(circle at 85% 0%, rgba(227, 167, 47, 0.16), transparent 45%), var(--green-900);
+    border-bottom: 6px solid var(--gold);
+    color: var(--white);
+}
+
+body>center i {
+    font-style: normal;
+}
+
+body>center h1 {
+    margin: 0 auto 1.5rem;
+    max-width: 22ch;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(1.6rem, 5.5vw, 2.6rem);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    color: var(--white);
+}
+
+body>center img {
+    width: clamp(110px, 26vw, 165px);
+    height: clamp(110px, 26vw, 165px);
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--white);
+    background: var(--white);
+    box-shadow: 0 0 0 3px var(--gold), 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Navigation: the "|" separators are hidden, links become pills */
+
+nav {
+    font-size: 0;
+    color: transparent;
+    margin-top: 0.5rem;
+}
+
+nav a {
+    display: inline-block;
+    margin: 0.25rem 0.3rem;
+    padding: 0.5rem 1.4rem;
+    font-family: var(--sans);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    text-decoration: none;
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--green-900);
+    outline: none;
+}
+
+
+/* Active page: Home on the index page, Contact on the page with a form */
+
+body:not(:has(form)) nav a[href="index.html"],
+body:has(form) nav a[href="contact.html"] {
+    background: var(--white);
+    border-color: var(--white);
+    color: var(--green-900);
+}
+
+
+/* ---------- Page content column ---------- */
+
+body> :not(center) {
+    width: min(calc(100% - 2rem), 820px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body>p {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.1rem;
+}
+
+
+/* Remove the empty paragraphs the browser creates from stray </p> tags */
+
+p:empty {
+    display: none;
+}
+
+
+/* ---------- Hero ---------- */
+
+body>h2 {
+    margin-top: 2.75rem;
+    margin-bottom: 0.4rem;
+    text-align: center;
+    font-family: var(--sans);
+    font-size: clamp(0.95rem, 2.6vw, 1.15rem);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--green-700);
+}
+
+body>h2 hero {
+    display: block;
+}
+
+.hero-title {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    text-align: center;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(2.4rem, 8vw, 4.25rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    color: var(--green-900);
+    animation: rise 0.7s ease-out both;
+}
+
+body>p.hero-description {
+    width: min(calc(100% - 2rem), 660px);
+    font-size: 1.2rem;
+    color: var(--muted);
+}
+
+
+/* ---------- Photo ---------- */
+
+body>img {
+    display: block;
+    width: min(calc(100% - 2rem), 560px);
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    margin-top: 1.75rem;
+    margin-bottom: 1.75rem;
+    border-radius: 6px 28px 6px 28px;
+    border: 6px solid var(--white);
+    box-shadow: 0 14px 34px rgba(11, 58, 46, 0.22);
+}
+
+
+/* ---------- Opening hours + map card ---------- */
+
+body>p:has(marquee) {
+    margin-top: 2rem;
+    padding: 1.5rem 1.5rem 1.25rem;
+    background: var(--white);
+    border: 1px solid #d5e6df;
+    border-left: 6px solid var(--gold);
+    border-radius: 14px;
+    font-weight: 500;
+    box-shadow: 0 8px 24px rgba(11, 58, 46, 0.08);
+}
+
+marquee {
+    display: block;
+    margin: 1.25rem 0 1rem;
+    padding: 0.2rem 0;
+    background: var(--green-100);
+    border-radius: 8px;
+}
+
+marquee h2 {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--green-900);
+}
+
+iframe {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: clamp(280px, 52vw, 420px);
+    margin: 0 auto 0.5rem;
+    border-radius: 10px;
+}
+
+
+/* ---------- Contact page ---------- */
+
+
+/* Page heading (only the page that has a form) */
+
+body>h2:has(~form) {
+    margin-top: 2.75rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: var(--green-900);
+}
+
+
+/* Phone, email and address rows */
+
+body>p:has(+form),
+body>p:has(+p+form),
+body>p:has(+p+p+form) {
+    width: min(calc(100% - 2rem), 620px);
+    margin-bottom: 0.6rem;
+    padding: 0.85rem 1.2rem;
+    text-align: left;
+    font-weight: 500;
+    background: var(--white);
+    border: 1px solid #d5e6df;
+    border-left: 6px solid var(--green-700);
+    border-radius: 10px;
+    overflow-wrap: anywhere;
+}
+
+
+/* Appointment form */
+
+body>form {
+    width: min(calc(100% - 2rem), 620px);
+    margin-top: 1.75rem;
+    margin-bottom: 2rem;
+    padding: 1.75rem;
+    background: var(--white);
+    border: 1px solid #d5e6df;
+    border-left: 6px solid var(--gold);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(11, 58, 46, 0.08);
+}
+
+
+/* The <br> tags in the form are replaced by spacing */
+
+form br {
+    display: none;
+}
+
+form textarea,
+form input,
+form select {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.8rem 1rem;
+    font: inherit;
+    color: var(--ink);
+    background: var(--white);
+    border: 1.5px solid #bcd3ca;
+    border-radius: 8px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+form ::placeholder {
+    color: #7c8d87;
+}
+
+form textarea:focus,
+form input:focus,
+form select:focus {
+    outline: none;
+    border-color: var(--green-700);
+    box-shadow: 0 0 0 4px rgba(20, 96, 74, 0.18);
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: var(--green-900);
+}
+
+form button {
+    display: block;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.95rem 1.5rem;
+    font: inherit;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--green-900);
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+form button:hover {
+    background: var(--gold);
+    color: var(--green-900);
+}
+
+form button:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+}
+
+
+/* ---------- Footer (the copyright line; also styles a real <footer>) ---------- */
+
+footer,
+body>p:has(+p:empty),
+body>p:has(>small:only-child) {
+    width: 100%;
+    max-width: none;
+    margin-top: 3rem;
+    margin-bottom: 0;
+    padding: 1.5rem 1rem;
+    background: var(--green-900);
+    border-top: 6px solid var(--gold);
+    color: #c9dcd4;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+
+/* ---------- Motion + small screens ---------- */
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-title {
+        animation: none;
+    }
+    nav a {
+        transition: none;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 1rem;
+    }
+    nav a {
+        padding: 0.45rem 1rem;
+        margin: 0.2rem;
+    }
+    body>p:has(marquee) {
+        padding: 1.1rem 1rem;
+    }
+}
+
+.services {
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.services h2 {
+    color: #1b7a3d;
+    /* change to your theme's green */
+    margin-bottom: 8px;
+}
+
+.services-intro {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.service-card {
+    background: #fff;
+    border-top: 4px solid #d4a017;
+    /* change to your theme's gold */
+    border-radius: 8px;
+    padding: 24px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.service-card h3 {
+    color: #1b7a3d;
+    margin-top: 0;
+}
