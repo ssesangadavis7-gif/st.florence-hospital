@@ -438,4 +438,46 @@ body>p:has(>small:only-child) {
 .service-card h3 {
     color: #1b7a3d;
     margin-top: 0;
+
+}
+
+/* STUDENT NAME AT THE TOP */
+.student-name {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 15px;
+    background: var(--green-900);
+    color: white;
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-bottom: 3px solid var(--gold);
+}
+
+/* REGISTRATION NUMBER AT THE BOTTOM */
+.student-registration {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 15px;
+    background: var(--green-900);
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    border-top: 2px solid var(--gold);
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    max-width: none;
+    margin-top: 40px;
+    padding: 20px;
+    background: var(--green-900);
+    color: white;
+    text-align: center;
 }
